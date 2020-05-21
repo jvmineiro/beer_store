@@ -13,7 +13,70 @@ class CartTile extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Widget _buildContent(){
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(8.0),
+            width: 120.0,
+            child: Image.network(
+              cartProduct.productData.images[0],
+              fit: BoxFit.cover,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    cartProduct.productData.title,
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17.0),
+                  ),
+                  Text(
+                    "Tamanho: ${cartProduct.size}",
+                    style: TextStyle(fontWeight: FontWeight.w300),
+                  ),
+                  Text(
+                    "R\$ ${cartProduct.productData.price.toStringAsFixed(2)}",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.remove),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: cartProduct.quantity > 1 ?
+                        (){} : null,
+                      ),
+                      Text(cartProduct.quantity.toString()),
+                      IconButton(
+                        icon: Icon(Icons.add),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () {},
+                      ),
+                      FlatButton(
+                        child: Text("Remover"),
+                        textColor: Colors.grey[500],
+                        onPressed: (){
 
+                        },
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      );
     }
 
     return Card(

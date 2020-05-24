@@ -14,6 +14,7 @@ class OrderScreen extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
